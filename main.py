@@ -1,6 +1,8 @@
 '''
 Multi-Layer Perceptron smart home command resolver.
 
+Python 3.7.x
+
 dataset / refs:
 1) https://www.kaggle.com/bouweceunen/smart-home-commands-dataset/code
 '''
@@ -17,7 +19,7 @@ for dirname, _, filenames in os.walk('data/'):
     for filename in filenames:
         print(os.path.join(dirname, filename))
 
-df = pd.read_csv("data/dataset_new.csv")
+df = pd.read_csv("data/dataset_ditto.csv")
 
 
 # Data Preperation
