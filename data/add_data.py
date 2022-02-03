@@ -32,6 +32,27 @@ df_light = pd.DataFrame([
     ['lights', 'none', 'purple', 'set the lights to purple'],
     ['lights', 'none', 'sparkle', 'set the lights to sparkle'],
     ['lights', 'none', 'gradient', 'set the lights to gradient'],
+    ['lights', 'none', 'red', 'set the lights to red'],
+    ['lights', 'none', 'red', 'please set the lights to red'],
+    ['lights', 'none', 'red', 'set the lights to red'],
+    ['lights', 'none', 'red', 'lights to red'],
+    ['lights', 'none', 'white', 'can you set the lights to white please'],
+    ['lights', 'none', 'white', 'set the lights to white'],
+    ['lights', 'none', 'orange', 'please set the lights to orange'],
+    ['lights', 'none', 'orange', 'set the lights to orange'],
+    ['lights', 'none', 'yellow', 'set the lights to yellow'],
+    ['lights', 'none', 'green', 'set the lights to green'],
+    ['lights', 'none', 'blue', 'set the lights to blue'],
+    ['lights', 'none', 'purple', 'set the lights to purple'],
+    ['lights', 'none', 'sparkle', 'can you set the lights to sparkle'],
+    ['lights', 'none', 'sparkle', 'put the the lights on sparkle'],
+    ['lights', 'none', 'gradient', 'set the lights to gradient'],
+    ['lights', 'none', 'on', 'turn on the lights'],
+    ['lights', 'none', 'on', 'lights on'],
+    ['lights', 'none', 'off', 'turn off the lights'],
+    ['lights', 'none', 'off', 'lights off'],
+    ['lights', 'none', 'off', 'shut off the lights'],
+    ['lights', 'none', 'on', 'can you you turn on the lights'],
     ], columns=['Category', 'Subcategory', 'Action', 'Sentence'])
 
 def extract_prompts(filepath):
@@ -42,7 +63,7 @@ def extract_prompts(filepath):
         completion = ""
         for x in f.readlines():
             if "Q:" in x:
-                prompt = x.strip("\n")+"\\n".strip('Q: \\n')
+                prompt = x.strip('Q: ').strip('\n')
                 if not prompt == '':
                     prompts.append(prompt)
             elif "A:" in x:
@@ -68,5 +89,6 @@ for prompt in time_prompts:
 df_other = pd.DataFrame(other_arr, columns=['Category', 'Subcategory', 'Action', 'Sentence'])
 
 
-df = df.append(df_light, ignore_index=True).append(df_other, ignore_index=True)
+# df = df.append(df_light, ignore_index=True).append(df_other, ignore_index=True)
+df = df_light.append(df_other, ignore_index=True)
 df.to_csv('dataset_ditto.csv', index=False)
