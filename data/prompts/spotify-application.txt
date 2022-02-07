@@ -55,31 +55,13 @@ A: toggle-spotify-playlist `djedjetunes`
 Q: play the mars volta.
 A: toggle-spotify `the mars volta`
 Q: pause music.
-A: toggle-spotify-player `pause`
-Q: resume music.
-A: toggle-spotify-player `resume`
-Q: play.
-A: toggle-spotify-player `resume`
-Q: play music.
-A: toggle-spotify-player `resume`
-Q: next song.
-A: toggle-spotify-player `next`
-Q: previous song.
-A: toggle-spotify-player `previous`
-Q: go back to the last song.
-A: toggle-spotify-player `previous`
-Q: skip this track.
-A: toggle-spotify-player `next`
 Q: play my top songs 2020 playlist.
 A: toggle-spotify-playlist`your top songs 2020`
 Q: play jeff buckley.
 A: toggle-spotify `jeff buckley`
 Q: play future days by can.
 A: toggle-spotify `can, future days`
-Q: next song please.
-A: toggle-spotify-player `next`
 Q: play jazz tunes playlist on Spotify.
 A: toggle-spotify-playlist `Djedjetunes`
 Q: Guerilla toss on Spotify.
 A: toggle-spotify `guerilla toss`
-Q: 

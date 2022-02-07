@@ -87,7 +87,7 @@ def extract_prompts(filepath):
 
 conv_prompts = extract_prompts('prompts/conversation-application.txt')
 mem_prompts = extract_prompts('prompts/memory-application.txt')
-# spot_prompts = extract_prompts('prompts/spotify-application.txt')
+spot_prompts = extract_prompts('prompts/spotify-application.txt')
 time_prompts = extract_prompts('prompts/timer-application.txt')
 
 # "other" model
@@ -96,8 +96,8 @@ for prompt in conv_prompts:
     other_arr.append(['other', 'none', 'none', prompt])
 for prompt in mem_prompts:
     other_arr.append(['other', 'none', 'none', prompt])
-# for prompt in spot_prompts:
-#     other_arr.append(['other', 'none', 'none', prompt])
+for prompt in spot_prompts:
+    other_arr.append(['spotify', 'none', 'none', prompt])
 for prompt in time_prompts:
     other_arr.append(['other', 'none', 'none', prompt])
 df_other = pd.DataFrame(other_arr, columns=['Category', 'Subcategory', 'Action', 'Sentence'])
