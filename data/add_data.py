@@ -99,7 +99,7 @@ for prompt in mem_prompts:
 for prompt in spot_prompts:
     other_arr.append(['spotify', 'none', 'none', prompt])
 for prompt in time_prompts:
-    other_arr.append(['other', 'none', 'none', prompt])
+    other_arr.append(['timer', 'none', 'none', prompt])
 df_other = pd.DataFrame(other_arr, columns=['Category', 'Subcategory', 'Action', 'Sentence'])
 
 
