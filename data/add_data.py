@@ -55,6 +55,20 @@ df_light = pd.DataFrame([
     ['lights', 'none', 'on', 'can you you turn on the lights'],
     ], columns=['Category', 'Subcategory', 'Action', 'Sentence'])
 
+df_music = pd.DataFrame([
+    ['music', 'none', 'pause', 'pause music'],
+    ['music', 'none', 'resume', 'play music'],
+    ['music', 'none', 'pause', 'can you please pause the music'],
+    ['music', 'none', 'resume', 'resume music'],
+    ['music', 'none', 'resume', 'play music please'],
+    ['music', 'none', 'next', 'next song'],
+    ['music', 'none', 'next', 'skip this song'],
+    ['music', 'none', 'next', 'next track'],
+    ['music', 'none', 'previous', 'go back a song'],
+    ['music', 'none', 'previous', 'previous song'],
+    ['music', 'none', 'previous', 'can you go back to the last song'],
+    ], columns=['Category', 'Subcategory', 'Action', 'Sentence'])
+
 def extract_prompts(filepath):
     with open(filepath, 'r') as f:
         fmt_str = ""
@@ -73,7 +87,7 @@ def extract_prompts(filepath):
 
 conv_prompts = extract_prompts('prompts/conversation-application.txt')
 mem_prompts = extract_prompts('prompts/memory-application.txt')
-spot_prompts = extract_prompts('prompts/spotify-application.txt')
+# spot_prompts = extract_prompts('prompts/spotify-application.txt')
 time_prompts = extract_prompts('prompts/timer-application.txt')
 
 # "other" model
@@ -82,13 +96,13 @@ for prompt in conv_prompts:
     other_arr.append(['other', 'none', 'none', prompt])
 for prompt in mem_prompts:
     other_arr.append(['other', 'none', 'none', prompt])
-for prompt in spot_prompts:
-    other_arr.append(['other', 'none', 'none', prompt])
+# for prompt in spot_prompts:
+#     other_arr.append(['other', 'none', 'none', prompt])
 for prompt in time_prompts:
     other_arr.append(['other', 'none', 'none', prompt])
 df_other = pd.DataFrame(other_arr, columns=['Category', 'Subcategory', 'Action', 'Sentence'])
 
 
 # df = df.append(df_light, ignore_index=True).append(df_other, ignore_index=True)
-df = df_light.append(df_other, ignore_index=True)
+df = df_light.append(df_music, ignore_index=True).append(df_other, ignore_index=True)
 df.to_csv('dataset_ditto.csv', index=False)
